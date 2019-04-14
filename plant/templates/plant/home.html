@@ -1,0 +1,23 @@
+{% extends 'plant/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="content-section">
+        <h3>Welcome - Plant Leaf Disease Detection App</h3>
+            <p class="text-muted">
+                <ul class="list-group">
+                    {% if user.is_authenticated %}
+                        <li class="list-group-item list-group-item-light">Welcome {{user.username}}</li>
+                        <li class="list-group-item list-group-item-light">Email: {{user.email}}</li>
+                        <li class="list-group-item list-group-item-light"><img src="{{user.plant.image.url}}" width="200" height="200"></li>
+                        <li class="list-group-item list-group-item-light">{{user.date_joined}}</li>
+                    {% else %}
+                        <li class="list-group-item list-group-item-light"><img src="{% static 'plant/images/plants.jpg' %}" width="200" height="200"></li>
+                        <li class="list-group-item list-group-item-light">No user activity yet</li>
+                        <li class="list-group-item list-group-item-light">This is plant leaf disease detection system</li>
+                        <li class="list-group-item list-group-item-light">A user should be member of this system</li>
+                        <li class="list-group-item list-group-item-light">Make healthy plant</li>
+                    {% endif %}
+                </ul>
+            </p>
+    </div>
+{% endblock content %}
